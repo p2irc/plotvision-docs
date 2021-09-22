@@ -1,10 +1,9 @@
-Welcome to Lumache's documentation!
+Welcome to PlotVision's documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**PlotVision** is Software as a Service (SaaS) product for analysis of agricultural field imagery. 
+It identifies individual field plots within UAV images, and uses AI to analyse their colour, 
+3D shape and more—helping to predict outcomes like harvest yield and disease resistance.
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.

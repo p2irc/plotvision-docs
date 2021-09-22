@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'PlotVision'
+copyright = 'University of Saskatchewan'
+author = 'William van der Kamp, Danny Huang, Josh Kocur, Travis Gray, Aristides Mairena Flores, Steven Xue, Matthew Martens'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.4'
+version = '0.4.10'
 
 # -- General configuration
 
