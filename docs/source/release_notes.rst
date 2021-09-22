@@ -1,7 +1,5 @@
-API
-===
+Release Notes
+=============
 
 .. autosummary::
    :toctree: generated
-
-   lumache
