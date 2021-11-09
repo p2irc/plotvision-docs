@@ -4,7 +4,7 @@ Setup for read the docs and github was found here:
 https://docs.readthedocs.io/en/stable/tutorial/
 
 Github repository:
-https://github.com/MatticusPrime29/plotvision-docs
+https://github.com/p2irc/plotvision-docs
 
 Documentation for documentation building with Sphinx
 
