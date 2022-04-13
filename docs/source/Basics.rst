@@ -1,10 +1,10 @@
-Usage
+Basics
 =====
 
-Image Upload
+Termonology
 ------------
 
 
-Creating Metadata
+What is PlotVision
 -----------------
 
