@@ -4,7 +4,7 @@ Data Exportation
 CSV File Metrics
 -------------------------------------
 
-This is the information for all current PlotVision computed per-plot metrics, as exported in the results CSV. For each metric, the associated column names in the results CSV are detailed. See also `Bands Specification`_ and `List of Indices`_ below. All metrics are based upon the individual plot image & plot Digital Surface Model (DSM) extracted from the trial orthomosaic image & DSM. Thus all metrics are calculated from the ortho-rectified overhead perspective, and should only be evaluated in that context. Unstitched raw images are not currently included in analysis.
+This is the information for all current PlotVision computed per-plot metrics, as exported in the results CSV. All CSV file metrics require `Plot Extraction`_ to generate. For each metric, the associated column names in the results CSV are detailed. See also `Bands Specification`_ and `List of Indices`_ below. All metrics are based upon the individual plot image & plot Digital Surface Model (DSM) extracted from the trial orthomosaic image & DSM. Thus all metrics are calculated from the ortho-rectified overhead perspective, and should only be evaluated in that context. Unstitched raw images are not currently included in analysis.
 
 Included metrics:
 
@@ -155,8 +155,28 @@ All current **Spectral Indices** and **Vegetation-Segmented Spectral Indices** f
 Image Exports
 --------------
 
+This section details all the various images available to export in PlotVision. The Orthomosaic and DSM exports are the most basic, and do not require `Plot Extraction`_, but all other images do. Any image that requires plot extraction first should be found within a Bulk Export. Further, during plot extraction, the check box asking to generate the data should also have been checked.
+
+Orthomosaic and DSM
+^^^^^^^^^^^^^^^^^^^
+
+The orthomosaic and DSM are the two most basic exports PlotVision provides. They require no extra input beyond the raw UAV images themselves (please look at `Pre-Flight Information`_ before imaging a research trial). Every mission will have the orthomosaic and DSM available for export from the dashboard as soon as stitching has completed.
+
+Cropped Orthomosaic Images
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cropped Index Images
+^^^^^^^^^^^^^^^^^^^^
+
+Cropped _Segmented Index Images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
 Correlations
 ------------
+
+Creating correlations and heatmaps is currently a work in progress for PlotVision development. It is not automatically included in any export. However, you can contact anyone on the PlotVision team and we'll see what we can do for you.
 
 Plot Workspace
 --------------
