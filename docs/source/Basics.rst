@@ -4,7 +4,7 @@ Basics
 What is PlotVision
 -----------------
 
-PlotVision is a SaaS for processing high throughput phenotyping data, specifically captured from UAV/drones. Found at www.plotvision.usask.ca, a user can upload images taken from a UAV flight on research plots, and PlotVision will stitch them into an orthomosaic. From there, a user can segment the separate research plots, and obtain calculated phenotypes.
+PlotVision is a cloud based Software as a Service that applies image analysis metrics to quickly assess large numbers of micro-plots from Unmanned Aerial Vehicle (UAV) multi-spectral imagery. PlotVision will create an orthomosaic and DSM from the images, and calculate metrics such as height, volume, and NDVI of individual micro-plots after a segmentation. PlotVision can be found at `<https://plotvision.usask.ca/>`_
 
 Analytics
 ^^^^^^^^^
