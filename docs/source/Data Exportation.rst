@@ -1,6 +1,19 @@
 Data Exportation
 =====================================
 
+How to Export
+------------------------------------------
+
+There are two buttons that can bring you to your results after a segmentation has been processed. The basic choise is to use the Data Export button on the left toolbar. This opens a popup where Trials and Missions can be selected. Bulk Exports are also possible from this popup, and downloading from multiple missions at once is usually quicker from here.
+
+.. image:: /images/exports/bulk_export.png
+    :width: 600
+
+If data is only needed from a specific mission that you’ve already found in the dashboard, the export buttons from the mission panel are also an option. From here the same panel where you can export the orthomosaic, DSM, and CSV file will open.
+
+.. image:: /images/exports/mission_export.png
+    :width: 600
+
 CSV File Metrics
 -------------------------------------
 
@@ -162,16 +175,24 @@ Orthomosaic and DSM
 
 The orthomosaic and DSM are the two most basic exports PlotVision provides. They require no extra input beyond the raw UAV images themselves (please look at `Pre-Flight Information`_ before imaging a research trial). Every mission will have the orthomosaic and DSM available for export from the dashboard as soon as stitching has completed.
 
+The orthomosaic will be in .tif format, and have a number of channels equal to the input image. For example, for a RedEdge orthomosaic, the shape of the image will be (WIDTH, HEIGHT, 5), because a RedEdge camera captures 5 colour channels. RGB cameras cameras capture 3 channels. The DSM is a greyscale floating point image, where each pixel represents an altitude. The borders of both of these images will have a non-zero value to represent `null`, or a non-existant pixel value, usually set at the max possible value for the image type. If viewing these images in ArcGIS or QGIS, it is recommended to scale the image values.
+
 Cropped Orthomosaic Images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cropped orthomosaic images are only available to export after a segmentation in which plot images were selected is finished processing. For each plot in the segmentation, the orthomosaic will be cropped to contain only that plot, named according to the plot name, and be saved in the same image format as the orthomosaic. These images are available for download in the Bulk Export section of the export popup, at the bottom. In the case of non-RGB orthomosaics, a "viewable\_" version of the image should also be available. This would contain only the RGB channels of the image, and is designed only to be used by humans inspecting the data for accuracy.
+
+Beyond this, the same orthomosaic with various spectral indices and metrics applied is also available for download. These images will usually be a greyscale version of the orthomosaic with the given metric applied. These images can be downloaded at the bottom of the export popup, under the options in a Bulk Export.
 
 Cropped Index Images
 ^^^^^^^^^^^^^^^^^^^^
 
+Similar to the cropped orthomosaic images, these are only available after a successful segmentation in which plot images were chosen to be generated. These images will be in greyscale, and are simply the orthomosaic with the given spectral indices applied, then cropped to the plot.
+
 Cropped _Segmented Index Images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+Masked images. Same as normal cropped images, but non-plant pixels have been blacked out using our proprietary vegetation segmentation algorithm.
 
 Correlations
 ------------
@@ -180,3 +201,5 @@ Creating correlations and heatmaps is currently a work in progress for PlotVisio
 
 Plot Workspace
 --------------
+
+A tool for visualizing metrics, visualizing plot data, viewing plot images before downloading, and viewing the images with metrics applied.
