@@ -11,6 +11,7 @@ In the absence of other guidelines, following the MicaSense guidelines are a goo
 
 Flight Pattern
 ^^^^^^^^^^^^^^
+
 - Together, the images should cover the whole trial you are flying (no gaps, ideally). Using a standard automated flight plan with regular velocity and periodic image capture will help achieve this.
 - Between neighbouring images, there must be roughly 80% image overlap on all sides.
 - When optimizing flight speed vs. capture rate to achieve 80% image overlap, please remember to keep the speed of the drone fairly low, to minimize motion blur (1-2 m/sec is probably ideal).
@@ -21,6 +22,7 @@ Flight Pattern
 
 Calibration
 ^^^^^^^^^^^
+
 - It is frequently possible to get good quality metrics without doing much calibration.
 - But If you desire good quality spectral data (to produce accurate NDVI estimates, etc.), it is important to use a calibration panel with known albedo values for each spectral band
 in your camera. You should image this panel at the start of every flight (don’t cast a shadow on the image). You will also have to contact us with information about the model
@@ -29,7 +31,8 @@ of panel used.
 - If performing multiple missions with the same UAV and sensor setups in the same day, it is recommended to take calibration images at the beginning or end of every mission.
 
 GPS
-^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
+
 - A GPS mounted on the drone is not necessary, provided you use :ref:`Ground Control Points (GCPs)`, but it can help improve results.
 - If you do mount a GPS, please ensure that one of the following is true:
 
