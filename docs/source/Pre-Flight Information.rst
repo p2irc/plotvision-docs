@@ -4,7 +4,7 @@ Pre-Flight Information
 Best Practises for Optimal Flights
 ---------------------------------
 
-PlotVision converts raw aerial images into per-plot image datasets. You can use whichever drone and camera you like, but to facilitate dataset curation, and get the best quality image data, we provide the following recommendations. Before flying, it's important to understand the limitations and scope of the equipement you're working with. Often, camera or drone manufacturers will supply guidelines of their own.
+PlotVision converts raw aerial images into per-plot image datasets. You can use whichever drone and camera you like, but to facilitate dataset curation, and get the best quality image data, we provide the following recommendations. Before flying, it's important to understand the limitations and scope of the equipment you're working with. Often, camera or drone manufacturers will supply guidelines of their own.
 
 In the absence of other guidelines, following the MicaSense guidelines are a good practise. These can be found `here <https://support.micasense.com/hc/en-us/articles/224893167-Best-practices-Collecting-Data-with-MicaSense-Sensors>`_, but important points will also be summarized here.
 
@@ -27,7 +27,7 @@ Calibration
 - But If you desire good quality spectral data (to produce accurate NDVI estimates, etc.), it is important to use a calibration panel with known albedo values for each spectral band
 in your camera. You should image this panel at the start of every flight (don’t cast a shadow on the image). You will also have to contact us with information about the model
 of panel used.
-- To minimize impacts due to cloudiness, it can help to put the calibration panel on the ground, within sight of the uav, for the duration of the flight. This might mean moving the panel while the flight is ongoing, but make sure no humans are caught on camera!
+- To minimize impacts due to cloudiness, it can help to put the calibration panel on the ground, within sight of the UAV, for the duration of the flight. This might mean moving the panel while the flight is ongoing, but make sure no humans are caught on camera!
 - If performing multiple missions with the same UAV and sensor setups in the same day, it is recommended to take calibration images at the beginning or end of every mission.
 
 GPS
@@ -46,6 +46,11 @@ Ground Control Points (GCPs)
 When flying with sensors or UAVs that do not capture accurate or any GPS data, but volumetric measurements of the plots are still desired, then the we recommend the use of Ground Control Points (GCPs). GCPs are also useful in tandem with sensors or UAVs that capture GPS for improved stitching results and accuracy of volumetric measurements. GCPs is the term for physical markers that exist in the field that are RTKed with a GPS point in either Lat/Longs or UTM coordinates. Specific markers designed by Agisoft can be automatically detected and categorized within the images, and will georeference the orthomosaic and DSM of the field.
 
 GCP Markers need to exists permanently in the field, be completely visible and uncovered from a bird eye view, and need to be printed/sized to specific measurements. Each marker in a mission should also be unique, meaning if 12 markers must exist in your field for one orthomosaic, they must be 12 unique markers.
+
+.. image:: images/basics/gcp.png
+    :width: 400
+    :align: center
+|
 
 Marker Placement
 ^^^^^^^^^^^^^^^^
@@ -77,7 +82,7 @@ It is important to record the GPS location of each GCP with good precision.
 - Please record the precision of your GPS measurements. (e.g. +/- 0.02m)
 
 - Please use the attached template CSV file (`gcp_template.csv <https://plotvision.usask.ca/static/files/gcps_template.csv>`_) to fill in your measurements. Note that for ‘target N’, N refers to the ID number printed on the GCP.
-- If your UAV imaging system also provides GPS measurements (either in a log or directly within image metadata), please ensure that the `datum <https://en.wikipedia.org/wiki/Geodetic_datum>`_ for the UAV matches the datum used for the GCPs. If not using WGS84, please specify the datum used in the ‘datum’ column ofyour gcp.csv.
+- If your UAV imaging system also provides GPS measurements (either in a log or directly within image metadata), please ensure that the `datum <https://en.wikipedia.org/wiki/Geodetic_datum>`_ for the UAV matches the datum used for the GCPs. If not using WGS84, please specify the datum used in the ‘datum’ column of your gcp.csv.
 
 Camera/Sensor Types
 ------------------
@@ -88,7 +93,7 @@ Supported Sensor Types
     - Any generic RGB camera
     - Anything MicaSense
     - Parrot Sequoia
-    - Senterra NDVI/NDRE/NIR
+    - Sentera NDVI/NDRE/NIR
     - Hyphen Airphen
     - PhaseOne and FC350 high resolution cameras
 
@@ -103,3 +108,8 @@ The raw colour values taken by a camera can change from one flight to the next, 
 The standard for calibration panels currently used in PlotVision is the MicaSense panels. Despite being MicaSense brand, they can be used by any sensor, including RGB cameras. If you use another type of calibration panel, please let us know, as it may require some manual input to use other panels correctly.
 
 When capturing a calibration image, the panel should be flat on the ground, away from any objects that can cause odd reflections of light to hit it (such as vehicles, or shade from trees). Also ensure that the actual reflectance panel is in at least 1/3 of the shot, and that any QR codes are also in shot. More information about how to capture a proper calibration image can be found `here <https://support.micasense.com/hc/en-us/articles/224893167-Best-practices-Collecting-Data-with-MicaSense-Sensors>`_ at the MicaSense website.
+
+.. image:: images/basics/calibration_panel.png
+    :width: 600
+    :align: center
+|
