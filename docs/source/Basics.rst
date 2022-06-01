@@ -4,7 +4,7 @@ Basics
 What is PlotVision
 -------------------
 
-PlotVision is a cloud based Software as a Service (SaaS) that applies image analysis metrics to quickly assess large numbers of micro-plots from Unmanned Aerial Vehicle (UAV) multi-spectral imagery.PlotVision will create an orthomosaic and DSM from the images, and calculate metrics such as height, volume, and NDVI of individual micro-plots after a segmentation. PlotVision can be found at `<https://plotvision.usask.ca/>`_
+PlotVision is a cloud based Software as a Service (SaaS) that applies image analysis metrics to quickly assess large numbers of micro-plots from Unmanned Aerial Vehicle (UAV) multi-spectral imagery. PlotVision will create an orthomosaic and DSM from the images, and calculate metrics such as height, volume, and NDVI of individual micro-plots after a segmentation. PlotVision can be found at `<https://plotvision.usask.ca/>`_
 
 The software is designed with plant research breeders in mind. We strive to make our system work with any UAV, sensor, camera, and imaging operation you have. The simplest and most heavily supported is our UAV pipeline. PlotVision does not perform imaging ourselves, but we do make every step afterwards as easy as possible.
 
@@ -30,7 +30,7 @@ More information about all we export can be found in :doc:`Data Exportation`
 Terminology
 ------------
 
-The use of PlotVision comes with a lot of jargon that may get confusing, especially when coming to the developers for assistance. These may be some terms you here, and some may be slightly different from what you're used to.
+The use of PlotVision comes with a lot of jargon that may get confusing, especially when coming to the developers for assistance. These may be some terms you hear, and some may be slightly different from what you're used to.
 
 *trial*
     A single in-field agricultural experiment, consisting of some number of plots and reps in a specific layout.
