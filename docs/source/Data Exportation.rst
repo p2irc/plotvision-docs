@@ -4,20 +4,24 @@ Data Exportation
 How to Export
 ------------------------------------------
 
-There are two buttons that can bring you to your results after a segmentation has been processed. The basic choise is to use the Data Export button on the left toolbar. This opens a popup where Trials and Missions can be selected. Bulk Exports are also possible from this popup, and downloading from multiple missions at once is usually quicker from here.
+There are two buttons that can bring you to your results after a segmentation has been processed. The basic choice is to use the Data Export button on the left toolbar. This opens a popup where Trials and Missions can be selected. Bulk Exports are also possible from this popup, and downloading from multiple missions at once is usually quicker from here.
 
 .. image:: /images/exports/bulk_export.png
-    :width: 600
+    :width: 800
+    :alt: IMAGE FAILED; ALT DESCRIPTION: Bulk export can be accessed at the bottom portion of the download modal; which is available in the left hand toolbar.
+|
 
 If data is only needed from a specific mission that you’ve already found in the dashboard, the export buttons from the mission panel are also an option. From here the same panel where you can export the orthomosaic, DSM, and CSV file will open.
 
 .. image:: /images/exports/mission_export.png
-    :width: 600
+    :width: 800
+    :alt: IMAGE FAILED; ALT DESCRIPTION: The alternative location for this modal, instead of the side bar, is in the mission section on the right hand side of the main dashboard after selecting a mission that has had a successful segmentation.
+|
 
 CSV File Metrics
 -------------------------------------
 
-This is the information for all current PlotVision computed per-plot metrics, as exported in the results CSV. All CSV file metrics require `Plot Extraction`_ to generate. For each metric, the associated column names in the results CSV are detailed. See also `Bands Specification`_ and `List of Indices`_ below. All metrics are based upon the individual plot image & plot Digital Surface Model (DSM) extracted from the trial orthomosaic image & DSM. Thus all metrics are calculated from the ortho-rectified overhead perspective, and should only be evaluated in that context. Unstitched raw images are not currently included in analysis.
+This is the information for all current PlotVision computed per-plot metrics, as exported in the results CSV. All CSV file metrics require :doc:`Plot Extraction` to generate. For each metric, the associated column names in the results CSV are detailed. See also `Bands Specification`_ and `List of Indices`_ below. All metrics are based upon the individual plot image & plot Digital Surface Model (DSM) extracted from the trial orthomosaic image & DSM. Thus all metrics are calculated from the ortho-rectified overhead perspective, and should only be evaluated in that context. Unstitched raw images are not currently included in analysis.
 
 Included metrics:
 
@@ -76,11 +80,11 @@ CSV column names
 Canopy Volume
 ^^^^^^^^^^^^^
 
-Only available for georeferenced missions. Canopy volume is calculated by first computing av egetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then vegetation volume in square meters is derived from GPS information.
+Only available for georeferenced missions. Canopy volume is calculated by first computing av vegetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then vegetation volume in square meters is derived from GPS information.
 
 CSV column names
-   | *crop_volume_m3_{INDEX NAME FOR VEGETATION SEGMENTATION}-based*: plot canop volume in meters cubed.
-   | *ground_dilation_pix_{INDEX NAME FOR VEGEATION_SEGMENTATION}-based*: value used for internal debugging. Can be ignored.
+   | *crop_volume_m3_{INDEX NAME FOR VEGETATION SEGMENTATION}-based*: plot canopy volume in meters cubed.
+   | *ground_dilation_pix_{INDEX NAME FOR VEGETATION_SEGMENTATION}-based*: value used for internal debugging. Can be ignored.
 
 Canola Flower Area
 ^^^^^^^^^^^^^^^^^^
@@ -168,14 +172,16 @@ All current **Spectral Indices** and **Vegetation-Segmented Spectral Indices** f
 Image Exports
 --------------
 
-This section details all the various images available to export in PlotVision. The Orthomosaic and DSM exports are the most basic, and do not require `Plot Extraction`_, but all other images do. Any image that requires plot extraction first should be found within a Bulk Export. Further, during plot extraction, the check box asking to generate the data should also have been checked.
+This section details all the various images available to export in PlotVision. The Orthomosaic and DSM exports are the most basic, and do not require :doc:`Plot Extraction`, but all other images do. Any image that requires plot extraction first should be found within a Bulk Export. Further, during plot extraction, the check box asking to generate the data should also have been checked.
+
+.. image:: images/exports/bulk_export.png
 
 Orthomosaic and DSM
 ^^^^^^^^^^^^^^^^^^^
 
-The orthomosaic and DSM are the two most basic exports PlotVision provides. They require no extra input beyond the raw UAV images themselves (please look at `Pre-Flight Information`_ before imaging a research trial). Every mission will have the orthomosaic and DSM available for export from the dashboard as soon as stitching has completed.
+The orthomosaic and DSM are the two most basic exports PlotVision provides. They require no extra input beyond the raw UAV images themselves (please look at :doc:`Pre-Flight Information` before imaging a research trial). Every mission will have the orthomosaic and DSM available for export from the dashboard as soon as stitching has completed.
 
-The orthomosaic will be in .tif format, and have a number of channels equal to the input image. For example, for a RedEdge orthomosaic, the shape of the image will be (WIDTH, HEIGHT, 5), because a RedEdge camera captures 5 colour channels. RGB cameras cameras capture 3 channels. The DSM is a greyscale floating point image, where each pixel represents an altitude. The borders of both of these images will have a non-zero value to represent `null`, or a non-existant pixel value, usually set at the max possible value for the image type. If viewing these images in ArcGIS or QGIS, it is recommended to scale the image values.
+The orthomosaic will be in .tif format, and have a number of channels equal to the input image. For example, for a RedEdge orthomosaic, the shape of the image will be ``(WIDTH, HEIGHT, 5)``, because a RedEdge camera captures 5 colour channels. RGB cameras cameras capture 3 channels. The DSM is a greyscale floating point image, where each pixel represents an altitude. The borders of both of these images will have a non-zero value to represent ``null``, or a non-existent pixel value, usually set at the max possible value for the image type. If viewing these images in ArcGIS or QGIS, it is recommended to scale the image values to exclude the extremes of the border.
 
 Cropped Orthomosaic Images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -183,6 +189,11 @@ Cropped Orthomosaic Images
 Cropped orthomosaic images are only available to export after a segmentation in which plot images were selected is finished processing. For each plot in the segmentation, the orthomosaic will be cropped to contain only that plot, named according to the plot name, and be saved in the same image format as the orthomosaic. These images are available for download in the Bulk Export section of the export popup, at the bottom. In the case of non-RGB orthomosaics, a "viewable\_" version of the image should also be available. This would contain only the RGB channels of the image, and is designed only to be used by humans inspecting the data for accuracy.
 
 Beyond this, the same orthomosaic with various spectral indices and metrics applied is also available for download. These images will usually be a greyscale version of the orthomosaic with the given metric applied. These images can be downloaded at the bottom of the export popup, under the options in a Bulk Export.
+
+.. image:: images/exports/image_exports.png
+    :width: 800
+    :align: center
+|
 
 Cropped Index Images
 ^^^^^^^^^^^^^^^^^^^^
@@ -192,14 +203,43 @@ Similar to the cropped orthomosaic images, these are only available after a succ
 Cropped _Segmented Index Images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Masked images. Same as normal cropped images, but non-plant pixels have been blacked out using our proprietary vegetation segmentation algorithm.
+The "\_segmented" version are the same as cropped images, however they are masked such that only vegetation is included. Non-plant pixels have been blacked out using our proprietary vegetation segmentation algorithm, and plant pixels have remained untouched. This allows for computations that require only plant pixels. Similarly, these are the images used to generate the "\_segmented" version of the CSV metrics.
+
+To verify the accuracy of our vegetation segmentation algorithm, or for your own personal use, also provided in the export is the segmentation mask generated.
+
+Other Non-Image Exports
+------------------------
+
+There are a few other exports available in PlotVision that have not been covered so far. These are all available as options within the Bulk Export.
+
+Photogrammetry Report (PDF)
+    A PDF report on how the orthomosaic progressed. Details about georeferencing, camera tilt, and stitching parameters are included in here.
+
+Trial Metadata
+    Data uploaded by the user as information about the trial. This includes:
+
+    - GCPs
+    - Trial Map
+    - Plots Info
+
+Plot Metadata (JSON)
+    A JSON format file of the plot segmentation.
+
+    - "plots": plot bounding boxes in the ortho
+    - "trial corners": corners selected by user when segmenting
+    - "trial_corners_osvr": trial corners again, but this time in the smaller, viewable, and rectified (oriented) orthomosaic.
+
+TFW Files
+    Georeferencing `world files <https://en.wikipedia.org/wiki/World_file>`_ generated by the stitching program, or uploaded by the user in the case of a direct orthomosaic upload.
+
+UUID and GUID files
+    A few files in a bulk export could contain only the 16 digit IDs used internally. These are mainly for debugging purposes and can be ignored, unless asked for by Support.
+
+Shapefiles of plots
+    Currently not supported, but will be in a near future update. Please contact someone from the PlotVision team if you are looking to export your plots as Shapefiles. They will have similar specification as the :doc:`required input for Shapefiles <Plot Extraction>`.
+
 
 Correlations
 ------------
 
 Creating correlations and heatmaps is currently a work in progress for PlotVision development. It is not automatically included in any export. However, you can contact anyone on the PlotVision team and we'll see what we can do for you.
-
-Plot Workspace
---------------
-
-A tool for visualizing metrics, visualizing plot data, viewing plot images before downloading, and viewing the images with metrics applied.
