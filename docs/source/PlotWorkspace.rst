@@ -1,7 +1,7 @@
 PlotWorkspace
 ================
 
-The PlotWorkspace is an advance data inspection tool designed to provide an interactive view of the results, plots, and orthomosaic. After a successful segmentation, the button on the dashboard, or for a specific segmentation, should become available. Within, users can inspect the orthomosaic and plot bounding boxes of the segmentation. Detailed per-plot views and per-replicate views allow for an in depth look at the performance of each plot or variety, and useful charts allow for comparisons across the entire trial.
+The PlotWorkspace is an advanced data inspection tool designed to provide an interactive view of the results, plots, and orthomosaic. After a successful segmentation, the button on the dashboard, or for a specific segmentation, should become available. Within, users can inspect the orthomosaic and plot bounding boxes of the segmentation. Detailed per-plot views and per-replicate views allow for an in depth look at the performance of each plot or variety, and useful charts allow for comparisons across the entire trial.
 
 .. image:: images/PlotWorkspace/plotworkspace_entry.png
     :width: 400
