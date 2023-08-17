@@ -46,8 +46,7 @@ CSV column names
 Vegetation-Segmented Spectral Indices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These values are calculated in the same way as Spectral Indices, with one extra step. Prior to aggregating the index into summary values, a vegetation segmentation is computed for the
-plot image, separating the image into vegetation and non-vegetation pixels. Then the summary values for the index are computed for the vegetation pixels only.
+These values are calculated in the same way as Spectral Indices, with one extra step. Prior to aggregating the index into summary values, a vegetation mask is computed and applied for the plot image, separating the image into vegetation and non-vegetation pixels. Then the summary values for the index are computed for the vegetation pixels only. To create the vegetation mask, automatic thresholding is applied to the first spectral index available from NDVI, Excess Green, or Blue NDVI.
 
 CSV column names
    | *mean_{INDEX NAME}_segmented*: The mean value of all vegetation pixels in the plot index array. This is an image that has been masked so that only vegetation pixels are included in the mean calculation.
@@ -57,10 +56,34 @@ CSV column names
 
 
 
+Canopy Area
+^^^^^^^^^^^
+
+Only available for georeferenced missions, where the width and length in UTM coordinates of each pixel can be computed. Canopy area is calculated by first computing a vegetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then vegetation area in square meters is derived from GPS information.
+
+.. math::
+    \frac{V}{N} \times A
+
+Where:
+    | *V* is the number of vegetation pixels in the plot image.
+    | *N* is the number of pixels in the plot image.
+    | *A* is the area of the plot as calculated from UTM coordinates.
+
+CSV column names
+    *crop_area_m2_{INDEX NAME FOR VEGETATION SEGMENTATION}-based*: plot canopy area in square meters, computed from the ortho-rectified overhead perspective.
+
 Canopy Height
 ^^^^^^^^^^^^^
 
-Only available for georeferenced missions. Canopy height is calculated by first computing a vegetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then summary height values in meters are aggregated based upon the Digital Surface Model elevation values corresponding to the ortho-rectified overhead vegetation pixels.
+Only available for georeferenced missions, where the width and length in UTM coordinates of each pixel can be computed. Canopy height is calculated by first computing a vegetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then elevation values in meters for plant pixels are then compared against the computed ground elevation, and height values are calculated. An aggregate of these height values are exported.
+
+.. math::
+    f(H) - f(G)
+
+Where:
+    | *f* is the vegetation segmentation function.
+    | *H* is the elevations of each pixel in the plot.
+    | *G* is the elevations of the ground level in the plot.
 
 CSV column names
    | *mean_crop_height_m_{INDEX NAME FOR VEGETATION SEGMENTATION}-based*: mean plot canopy height in meters.
@@ -69,18 +92,19 @@ CSV column names
    | *std_crop_height_m_{INDEX NAME FOR VEGETATION SEGMENTATION}-based*: standard deviation of plot canopy height in meters.
 
 
-Canopy Area
-^^^^^^^^^^^
 
-Only available for georeferenced missions. Canopy area is calculated by first computing a vegetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then vegetation area in square meters is derived from GPS information.
-
-CSV column names
-    *crop_area_m2_{INDEX NAME FOR VEGETATION SEGMENTATION}-based*: plot canopy area in square meters, computed from the ortho-rectified overhead perspective.
 
 Canopy Volume
 ^^^^^^^^^^^^^
 
-Only available for georeferenced missions. Canopy volume is calculated by first computing av vegetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then vegetation volume in square meters is derived from GPS information.
+Only available for georeferenced missions, where the width and length in UTM coordinates of each pixel can be computed. Canopy volume is calculated by first computing a vegetation segmentation for the plot image, separating the image into vegetation and non-vegetation pixels. Then vegetation volume in meters cubed is derived from GPS information.
+
+.. math::
+    H \times A
+
+Where:
+    | *H* is the canopy height in *m*
+    | *A* is the canopy area in *m:sup:`2`*
 
 CSV column names
    | *crop_volume_m3_{INDEX NAME FOR VEGETATION SEGMENTATION}-based*: plot canopy volume in meters cubed.
@@ -129,44 +153,47 @@ List of indices
 
 All current **Spectral Indices** and **Vegetation-Segmented Spectral Indices** for PlotVision. See `Bands Specification`_ for definitions of colour bands within formulas. *INDEX NAME* defines the name used for the index in the results CSV. It is very easy to add to this list. See `here <https://www.indexdatabase.de/db/i.php>`_ for suggestions. If you want an index to be added, please contact anyone on the PlotVision team.
 
-**Anthocyanin reflectance index (ARI)**
-   | formula: 1 / G - 1 / RE
+**Anthocyanin reflectance index (ARI)** [#f1]_
+   | Formula: :math:`\frac{1}{G} - \frac{1}{RE}`
    | INDEX NAME: ari
 
-
 **custom chlorophyll index (non-standard)**
-   | Formula: 1 / RE - 1 / NIR
+   | Formula: :math:`\frac{1}{RE} - \frac{1}{NIR}`
    | INDEX NAME: chl
 
 
-**Excess Green (ExG)**
-   | Formula: 2G - B - R
+**Excess Green (ExG)** [#f2]_
+   | Formula: :math:`2G - B - R`
    | INDEX NAME: excess_green
 
 
-**Normalized Difference RedEdge Index (NDRE)**
-   | Formula: (NIR - RE) / (NIR + RE)
+**Normalized Difference RedEdge Index (NDRE)** [#f3]_
+   | Formula: :math:`\frac{NIR - RE}{NIR + RE}`
    | INDEX NAME: ndre
 
 
-**Normalized Difference Vegetation Index (NDVI)**
-   | formula: (NIR - R) / (NIR + R)
+**Normalized Difference Vegetation Index (NDVI)** [#f4]_
+   | Formula: :math:`\frac{NIR - R}{NIR + R}`
    | INDEX NAME: ndvi
 
 
-**Normalized Difference Yellowness Index (NDYI)**
-   | formula: (G - B) / (G + B)
+**Normalized Difference Yellowness Index (NDYI)** [#f5]_
+   | Formula: :math:`\frac{G - B}{G + B}`
    | INDEX NAME: ndyi
 
 
-**Sentera NDVI**
+**Sentera NDVI** [#f6]_ [#f7]_
    | formula: Custom NDVI formula for Sentera sensors
    | INDEX NAME: sentera_ndvi
 
 
-**Sentera NDRE**
+**Sentera NDRE** [#f6]_ [#f7]_
    | formula: Custom NDRE formula for Sentera sensors
    | INDEX NAME: sentera_ndre
+
+**Normalized Green Red Difference Index (NGRDI)** [#f8]_
+   | Formula: :math:`\frac{G - R}{G + R}`
+   | INDEX NAME: ngrdi
 
 
 Image Exports
@@ -243,3 +270,16 @@ Correlations
 ------------
 
 Creating correlations and heatmaps is currently a work in progress for PlotVision development. It is not automatically included in any export. However, you can contact anyone on the PlotVision team and we'll see what we can do for you.
+
+
+
+.. rubric:: Footnotes
+
+.. [#f1] Anatoly A Gitelson, Mark N Merzlyak, and Olga B Chivkunova. “Optical properties and nondestructive estimation of anthocyanin content in plant leaves¶”. In: Photochemistry and photobiology 74.1 (2001), pp. 38–45.
+.. [#f2] Woebbecke, David M., George E. Meyer, Kenneth Von Bargen, and David A. Mortensen. "Color indices for weed identification under various soil, residue, and lighting conditions." Transactions of the ASAE 38, no. 1 (1995): 259-269. https://elibrary.asabe.org/abstract.asp?aid=27838
+.. [#f3] Daniel A Sims and John A Gamon. “Relationships between leaf pigment content and spectral reflectance across a wide range of species, leaf structures and developmental stages”. In: Remote Sensing of Environment 81.2 (2002), pp. 337–354. issn: 0034-4257. doi: https://doi.org/10.1016/S0034-4257(02)00010-X.
+.. [#f4] John W. Rouse Jr. et al. "MONITORING THE VERNAL ADVANCEMENT AND RETROGRADATION (GREEN WAVE EFFECT) OF NATURAL VEGETATION". English. 2 RSC 1978-1. CollegeStation, Texas, 77840: Remote Sensing Center, Texas A&M University, Apr. 1973.
+.. [#f5] ti Zhang et al. “Phenotyping Flowering in Canola (Brassica napus L.) and Estimating Seed Yield Using an Unmanned Aerial Vehicle-Based Imagery”. In: Frontiers in Plant Science 12 (June 2021). doi: https://doi.org/10.3389/fpls.2021.686332.
+.. [#f6] Sentera Support. "FAQ: How Does FieldAgent Calculate NDVI, Red Edge, or Other Index Data?". url: https://support.sentera.com/portal/en/kb/articles/faq-how-does-fieldagent-calculate-ndvi-red-edge-or-other-index-data
+.. [#f7] Sentera Support. "Sensor Specifics". url: https://support.sentera.com/portal/en/kb/sentera/sensor-specifics
+.. [#f8] E.T. Kanemasu. “Seasonal canopy reflectance patterns of wheat, sorghum, and soybean”. In: Remote Sensing of Environment 3.1 (1974), pp. 43–47. issn: 0034-4257. doi: https://doi.org/10.1016/0034-4257(74)90037-6.
