@@ -156,30 +156,42 @@ All current **Spectral Indices** and **Vegetation-Segmented Spectral Indices** f
 **Anthocyanin reflectance index (ARI)** [#f1]_
    | Formula: :math:`\frac{1}{G} - \frac{1}{RE}`
    | INDEX NAME: ari
+   | Emphasizes purple coloured pixels, such as plants with high amounts of anthocyanin. In some crops, the presence of anthocyanin is a marker of stress.
 
 **custom chlorophyll index (non-standard)**
    | Formula: :math:`\frac{1}{RE} - \frac{1}{NIR}`
    | INDEX NAME: chl
+   | Can estimate the chlorophyll content of the images leaves. It is sensitive to small variations in the chlorophyll content, and is consistent across multiple crop kinds.
 
 
 **Excess Green (ExG)** [#f2]_
    | Formula: :math:`2G - B - R`
    | INDEX NAME: excess_green
+   | A common spectral index used for a variety of applications. It emphasized green pixels, and has been used as estimates for crop vigour, abiotic stress tolerance, and biomass. Often, it is used as a replacement for NDVI when the imaging sensor lacks an NIR band.
 
 
 **Normalized Difference RedEdge Index (NDRE)** [#f3]_
    | Formula: :math:`\frac{NIR - RE}{NIR + RE}`
    | INDEX NAME: ndre
+   | This metric has similar uses as NDVI and ExG, but is computed using the RedEdge colour band instead of Red. The purpose is to better estimate chlorophyll content, and is mainly used to detect stresses in the plots, rather than vigour.
 
 
 **Normalized Difference Vegetation Index (NDVI)** [#f4]_
    | Formula: :math:`\frac{NIR - R}{NIR + R}`
    | INDEX NAME: ndvi
+   | NDVI is the most popular vegetative index, with a wide range of uses. NDVI has been used to estimate biomass, plant health, vigour, and yield. Foliage is highly reflective in the NIR spectrum, and not reflective in Red, meaning healthy foliage is emphasized.
 
 
 **Normalized Difference Yellowness Index (NDYI)** [#f5]_
    | Formula: :math:`\frac{G - B}{G + B}`
    | INDEX NAME: ndyi
+   | Emphasizes yellow pixels in the image. Useful for the detection of yellow flowers, particularly in canola (*brassica napus L.*).
+
+
+**Normalized Green Red Difference Index (NGRDI)** [#f8]_
+   | Formula: :math:`\frac{G - R}{G + R}`
+   | INDEX NAME: ngrdi
+   | As a metric, it is thought to be more useful for a measurement of plant growth and canopy closure in low resolution imagery, rather than using NDVI. It's still commonly used as a measure of plant health though, where the NIR band isn't available.
 
 
 **Sentera NDVI** [#f6]_ [#f7]_
@@ -191,9 +203,7 @@ All current **Spectral Indices** and **Vegetation-Segmented Spectral Indices** f
    | formula: Custom NDRE formula for Sentera sensors
    | INDEX NAME: sentera_ndre
 
-**Normalized Green Red Difference Index (NGRDI)** [#f8]_
-   | Formula: :math:`\frac{G - R}{G + R}`
-   | INDEX NAME: ngrdi
+
 
 
 Image Exports
