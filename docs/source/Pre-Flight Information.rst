@@ -81,7 +81,7 @@ It is important to record the GPS location of each GCP with good precision.
 - We recommend using a RTK GPS system (precision <= 2cm) for best results, but any GPS measurement is better than nothing.
 - Please record the precision of your GPS measurements. (e.g. +/- 0.02m)
 
-- Please use the attached template CSV file (`gcp_template.csv <https://plotvision.usask.ca/static/files/gcps_template.csv>`_) to fill in your measurements. Note that for ‘target N’, N refers to the ID number printed on the GCP.
+- Please use the attached template CSV file (`gcp_template.csv <https://plotvision.usask.ca/files/gcps_template.csv>`_) to fill in your measurements. Note that for ‘target N’, N refers to the ID number printed on the GCP.
 - If your UAV imaging system also provides GPS measurements (either in a log or directly within image metadata), please ensure that the `datum <https://en.wikipedia.org/wiki/Geodetic_datum>`_ for the UAV matches the datum used for the GCPs. If not using WGS84, please specify the datum used in the ‘datum’ column of your gcp.csv.
 
 Camera/Sensor Types
