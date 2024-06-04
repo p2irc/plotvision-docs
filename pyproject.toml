@@ -5,7 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 dependencies = [
   "sphinx",
-  "sphinx_rtd_theme",
+  "sphinx-rtd-theme",
 ]
 name = "PlotVision"
 authors = [{name = Matthew Martens", email = "mdm305@usask.ca"}]
