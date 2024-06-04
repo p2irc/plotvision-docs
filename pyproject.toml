@@ -3,6 +3,10 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
+dependencies = [
+  "sphinx",
+  "sphinx_rtd_theme",
+]
 name = "PlotVision"
 authors = [{name = Matthew Martens", email = "mdm305@usask.ca"}]
 dynamic = ["version", "description"]
