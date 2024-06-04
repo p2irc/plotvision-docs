@@ -1,10 +1,6 @@
 # Configuration file for the Sphinx documentation builder.
 
 import sphinx_rtd_theme
-...
-extensions = [
-    'sphinx_rtd_theme',
-]
 
 # -- Project information
 
@@ -24,6 +20,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel'
+    'sphinx_rtd_theme',
 ]
 
 intersphinx_mapping = {
