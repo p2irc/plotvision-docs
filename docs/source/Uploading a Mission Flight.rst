@@ -34,7 +34,7 @@ Trial Map and Plot Info Files
 
 The Trial Map JSON and Plot Info CSV files are the last two puzzle pieces to be able to create a segmentation. They are files that explain the layout of a trial, and where specific plots and varieties exist within that trial.
 
-A new tool is currently in the works to create these two files on the PlotVision site without needing to edit files. In the interim, our metadata guide can be found `here <https://plotvision.usask.ca/files/plotvision_metadata_guide.pdf>`_
+A new tool is currently in the works to create these two files on the PlotVision site without needing to edit files. In the interim, our metadata guide can be found `here <https://plotvision.usask.ca/static/files/plotvision_metadata_guide.pdf>`_
 
 To upload your newly created Trial Map and Plot Layout files, head over to the trial manager, and select the dashed line under the Trial Map field for your trial. From the bottom, select your two files, and upload them to PlotVision.
 
